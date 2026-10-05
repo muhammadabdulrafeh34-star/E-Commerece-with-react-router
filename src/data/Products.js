@@ -8,21 +8,24 @@ const Products = [
         price: 50000,
         title: "Laptop",
         image: laptop,
-        category: "electronics"
+        category: "electronics",
+        quantity: 1
     },
     {
         id: 2,
         price: 50000,
         title: "phone",
         image: phone,
-        category: "electronics"
+        category: "electronics",
+        quantity: 1
     },
     {
         id: 3,
         title: "headPhones",
         price: 5000,
         image: earbuds,
-        category: "electronics"
+        category: "electronics",
+        quantity: 1
 
     },
     {
@@ -30,7 +33,8 @@ const Products = [
         title: "headPhones",
         price: 5000,
         image: earbuds,
-        category: "electronics"
+        category: "electronics",
+        quantity: 1
 
     },
     {
@@ -38,16 +42,9 @@ const Products = [
         title: "headPhones",
         price: 5000,
         image: earbuds,
-        category: "electronics"
+        category: "electronics",
+        quantity: 1
 
-    },
-    {
-        id: 6,
-        title: "headPhones",
-        price: 5000,
-        image: earbuds,
-        category: "electronics"
-
-    },
+    }
 ];
 export default Products
