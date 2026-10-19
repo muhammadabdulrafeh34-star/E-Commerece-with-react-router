@@ -21,18 +21,24 @@ function Navbar() {
           ProductPage
         </Link>
 
-        <Link
+        {/* <Link
           to="/ProductDetailPage"
           className="text-sm font-medium text-white px-4 py-2 hover:bg-orange-500"
         >
           ProuctDtls
-        </Link>
+        </Link> */}
 
         <Link
           to="/Cart"
           className="text-sm font-medium text-white px-4 py-2 hover:bg-orange-500"
         >
           Cart
+        </Link>
+        <Link
+          to="/WishList"
+          className="text-sm font-medium text-white px-4 py-2 hover:bg-orange-500"
+        >
+          Wishlist
         </Link>
 
       </nav>

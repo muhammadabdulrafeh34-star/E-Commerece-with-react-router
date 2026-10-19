@@ -13,7 +13,7 @@ const Products = [
     },
     {
         id: 2,
-        price: 50000,
+        price: 250000,
         title: "phone",
         image: phone,
         category: "electronics",
@@ -22,7 +22,7 @@ const Products = [
     {
         id: 3,
         title: "headPhones",
-        price: 5000,
+        price: 15000,
         image: earbuds,
         category: "electronics",
         quantity: 1
@@ -40,10 +40,10 @@ const Products = [
     {
         id: 5,
         title: "headPhones",
-        price: 5000,
+        price: 3000,
         image: earbuds,
         category: "electronics",
-        quantity: 1
+        quantityzd: 1
 
     }
 ];

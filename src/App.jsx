@@ -5,6 +5,7 @@ import ProductPage from './pages/ProductPage'
 import RootLayout from './components/RootLayout'
 import ProductDetailPage from './pages/ProductDetailPage'
 import Cart from './pages/Cart'
+import WishList from './pages/WishList'
 
 function App(){
 const router = createBrowserRouter([
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path:"Cart",
     element:<Cart/>
+  },
+  {
+  path:"wishList",
+  element:<WishList/>
   }
 ]
 }
