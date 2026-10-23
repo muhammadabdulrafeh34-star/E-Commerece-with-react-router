@@ -1,19 +1,23 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import Products from "../data/Products"
-import { CartContext } from '../context/CartContext'
-import { useContext } from 'react'
+// import { CartContext } from '../context/CartContext'
+// import { useContext } from 'react'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../redux/cartSlice'
 
 function ProductDetailPage(){
   const { id } = useParams()
-  const { addToCart } = useContext(CartContext)
+  const dispatch = useDispatch();
+
+  // const { addToCart } = useContext(CartContext)
   //yahan hum .find method use kren k kyon k kisi akeli cheez ko id k throw find krna hoga.
   // When you have a list of data (e.g., products or articles) and want to 
   // display a detailed view of a specific item based on an ID (often passed via URL parameters)
 
   // parseInt use karke string id ko number mein convert kiya aur find kiya
   const product = Products.find((product) => product.id === parseInt(id))
-
+  
   if (!product) return <div>Product not found</div>
 
   return (
@@ -27,7 +31,7 @@ function ProductDetailPage(){
       <p className="text-black mt-2">{product.title}</p>
       <p className="text-black mt-2">PKR {product.price}</p>
       <button
-        onClick={() => addToCart(product)}
+        onClick={() => dispatch(addToCart(product))}
         className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 mt-4"
       >
         Add to Cart

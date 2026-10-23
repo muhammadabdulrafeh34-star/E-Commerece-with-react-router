@@ -1,10 +1,24 @@
 import React from 'react'
-import { CartContext } from '../context/CartContext'
+// import { CartContext } from '../context/CartContext'
+import { useDispatch, useSelector } from 'react-redux'
+import { IncreaseQuantity } from '../redux/cartSlice';
+import { decreaseQuantity } from '../redux/cartSlice';
+import { removeItem } from '../redux/cartSlice';
+import { clearCart } from '../redux/cartSlice';
+import { cartTotal } from '../redux/cartSlice';
+import { addToWhishList } from '../redux/wishListSlice';
 
-
-function Cart() {
-  const {cartItems, IncreaseQty, DecreaseQty, removeCartItem, cartTotal, clearCart, toogleWishList } = React.useContext(CartContext)
+  // const {cartItems, IncreaseQty, DecreaseQty, removeCartItem, cartTotal, clearCart, toogleWishList } = React.useContext(CartContext)
+ 
+ 
+ function Cart(){
+  const dispatch = useDispatch();
   
+  const cartItems = useSelector(
+    (state) => state.cart.cartItems  
+  );
+  
+  const total = useSelector(cartTotal)
   return (
     <div>
       {cartItems.map((product) => (
@@ -14,25 +28,25 @@ function Cart() {
           <p className='text-center'>PKR {product.price}</p>
           
           <div className="flex justify-center items-center">
-            <button onClick={() => IncreaseQty(product.id)}
+            <button onClick={() => dispatch(IncreaseQuantity(product.id))}
             className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 mt-4"  
             >+</button>
             <span
             className="mx-2 text-black font-semibold w-auto text-center"
             >{product.quantity}</span>
-            <button onClick={() => DecreaseQty(product.id)}
+            <button onClick={() => dispatch(decreaseQuantity(product.id))}
             className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 mt-4"
             >-</button>
-            <button onClick={() => removeCartItem(product.id)}
+            <button onClick={() => dispatch(removeItem(product.id))}
             className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 mt-4"
             >Remove</button>
-             <button onClick={() => toogleWishList(product)}
+             <button onClick={() => dispatch(addToWhishList(product))}
        className="bg-white text-white px-4 py-2 rounded hover:bg-blue-600 mt-4 mx-auto block"
        >❤️</button>
           </div>
         </div>
       ))}
-       <p className="text-lg font-bold mt-4 text-black text-center">Total: PKR {cartTotal}</p>
+       <p className="text-lg font-bold mt-4 text-black text-center">Total: PKR {total}</p>
        <button onClick={clearCart}
        className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 mt-4 mx-auto block"
        >Clear Cart</button>
